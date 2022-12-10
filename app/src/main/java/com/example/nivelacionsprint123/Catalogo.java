@@ -15,42 +15,31 @@ import com.example.nivelacionsprint123.Entidades.Producto;
 
 import java.util.ArrayList;
 
+
 public class Catalogo extends AppCompatActivity {
-    private DBFirebase dbFirebase;
     private ListView listViewProductos;
     private ProductoAdapter productoAdapter;
     private ArrayList<Producto> arrayProductos;
+    private DBFirebase dbFirebase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo);
-
+        dbFirebase = new DBFirebase();
         listViewProductos = (ListView) findViewById(R.id.listViewProductos);
         arrayProductos = new ArrayList<>();
-        dbFirebase = new DBFirebase();
-        //**** Creacion de producots
-        /*
-
-        Producto producto1 = new Producto("Producto1", "Desc1", 1000, R.drawable.dragon);
-        Producto producto2 = new Producto("Producto2", "Desc2", 2000, R.drawable.dragon);
-        Producto producto3 = new Producto("Producto3", "Desc3", 3000, R.drawable.dragon);
-        Producto producto4 = new Producto("Producto4", "Desc4", 4000, R.drawable.dragon);
-        Producto producto5 = new Producto("Producto5", "Desc5", 5000, R.drawable.dragon);
-        Producto producto6 = new Producto("Producto6", "Desc6", 6000, R.drawable.dragon);
-        Producto producto7 = new Producto("Producto7", "Desc7", 7000, R.drawable.dragon);
-        Producto producto8 = new Producto("Producto8", "Desc8", 8000, R.drawable.dragon);
-        Producto producto9 = new Producto("Producto9", "Desc9", 9000, R.drawable.dragon);
-
-        dbFirebase.insertData(producto1);
-        dbFirebase.insertData(producto2);
-        dbFirebase.insertData(producto3);
-        dbFirebase.insertData(producto4);
-        dbFirebase.insertData(producto5);
-        dbFirebase.insertData(producto6);
-        dbFirebase.insertData(producto7);
-        dbFirebase.insertData(producto8);
-        dbFirebase.insertData(producto9);
+        //***** Creación de Productos *****
+       /*
+        Producto producto1 = new Producto("Producto1", "Desc1", "1000", String.valueOf(R.drawable.dragon));
+        Producto producto2 = new Producto("Producto2", "Desc2", "2000", String.valueOf(R.drawable.dragon));
+        Producto producto3 = new Producto("Producto3", "Desc3", "3000", String.valueOf(R.drawable.dragon));
+        Producto producto4 = new Producto("Producto4", "Desc4", "4000", String.valueOf(R.drawable.dragon));
+        Producto producto5 = new Producto("Producto5", "Desc5", "5000", String.valueOf(R.drawable.dragon));
+        Producto producto6 = new Producto("Producto6", "Desc6", "6000", String.valueOf(R.drawable.dragon));
+        Producto producto7 = new Producto("Producto7", "Desc7", "7000", String.valueOf(R.drawable.dragon));
+        Producto producto8 = new Producto("Producto8", "Desc8", "8000", String.valueOf(R.drawable.dragon));
+        Producto producto9 = new Producto("Producto9", "Desc9", "9000", String.valueOf(R.drawable.dragon));
 
         arrayProductos.add(producto1);
         arrayProductos.add(producto2);
@@ -62,8 +51,8 @@ public class Catalogo extends AppCompatActivity {
         arrayProductos.add(producto8);
         arrayProductos.add(producto9);
         */
+        //***** ***** ***** ***** *****
 
-        //***** ***** *****
         productoAdapter = new ProductoAdapter(this, arrayProductos);
         listViewProductos.setAdapter(productoAdapter);
 

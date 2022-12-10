@@ -25,6 +25,7 @@ public class Home extends AppCompatActivity {
         editName = (EditText) findViewById(R.id.editName);
         editDescription = (EditText) findViewById(R.id.editDescription);
         editPrice = (EditText) findViewById(R.id.editPrice);
+
         dbFirebase = new DBFirebase();
 
         btnForm.setOnClickListener(new View.OnClickListener() {
@@ -33,13 +34,16 @@ public class Home extends AppCompatActivity {
                 Producto producto = new Producto(
                         editName.getText().toString(),
                         editDescription.getText().toString(),
-                        Integer.parseInt(editPrice.getText().toString()),
-                        R.drawable.dragon
+                        editPrice.getText().toString(),
+                        String.valueOf(R.drawable.dragon)
                 );
+
                 dbFirebase.insertData(producto);
                 Intent intent = new Intent(getApplicationContext(), Catalogo.class);
                 startActivity(intent);
             }
         });
+
+
     }
 }
